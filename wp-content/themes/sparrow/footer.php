@@ -6,7 +6,21 @@
 
          <div class="twelve columns">
 
-            <ul class="footer-nav">
+			<?php wp_nav_menu( array(
+				'theme_location'  => 'footer-menu',
+				'menu'            => '',
+				'container'       => null,
+				'menu_class'      => 'footer-nav',
+				'menu_id'         => '',
+				'echo'            => true,
+				'fallback_cb'     => 'wp_page_menu',
+				'before'          => '',
+				'after'           => '',
+				'link_before'     => '',
+				'link_after'      => '',
+				'items_wrap'      => '<ul id = "%1$s" class = "%2$s">%3$s</ul>',
+			) ); ?>
+<!--             <ul class="footer-nav">
 					<li><a href="#">Home.</a></li>
               	<li><a href="#">Blog.</a></li>
               	<li><a href="#">Portfolio.</a></li>
@@ -14,7 +28,7 @@
               	<li><a href="#">Contact.</a></li>
                <li><a href="#">Features.</a></li>
 			   </ul>
-
+ -->
             <ul class="footer-social">
                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                <li><a href="#"><i class="fa fa-twitter"></i></a></li>

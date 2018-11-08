@@ -269,9 +269,13 @@ ul#nav li a {
 
 ul#nav li a:active { background-color: transparent !important; }
 ul#nav li:hover > a,
-ul#nav li.current a { color: #fff; }
+ul#nav li.current a , 
+ul#nav li.current-menu-item a { 
+   color: #fff; 
+}
 
 /* adds down arrow */
+ul#nav li.menu-item-has-children:after,
 ul#nav span:after {
    width: 0;
 	height: 0px;
@@ -807,6 +811,7 @@ ul#nav ul li a {
 .post .entry-header h1 {
    font: 39px/48px raleway-semibold, sans-serif;
    margin-bottom: 18px;
+   text-align: left;
 }
 .post .entry-header h1 a,
 .post .entry-header h1 a:visited { color: #313131; }
@@ -841,6 +846,7 @@ ul#nav ul li a {
 /* post content */
 .post .post-content {
    margin-bottom: 18px;
+   text-align: left;
 }
 
 /* tags */
