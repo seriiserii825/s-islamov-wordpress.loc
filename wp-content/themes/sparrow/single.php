@@ -7,7 +7,7 @@
          <div class="row">
 
             <div class="ten columns centered text-center">
-               <h1>Our Blog<span>.</span></h1>
+               <h1><?php single_post_title(); ?><span>.</span></h1>
 
                <p>Aenean condimentum, lacus sit amet luctus lobortis, dolores et quas molestias excepturi
                enim tellus ultrices elit, amet consequat enim elit noneas sit amet luctu. </p>
@@ -25,112 +25,82 @@
 
             <div id="primary" class="eight columns">
                <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-                <!-- post -->
-                <article class="post">
+                  <!-- post -->
+                  <article class="post">
 
-                  <div class="entry-header cf">
+                     <div class="entry-header cf">
 
-                     <h1><a href="" title=""><?php the_title(); ?></a></h1>
+                        <h1><a href="<?php the_permalink(); ?>" title=""><?php the_title(); ?></a></h1>
 
-                     <p class="post-meta">
+                        <p class="post-meta">
 
-                        <time class="date" datetime="2014-01-14T11:24"><?php the_time('F d, Y'); ?></time>
-                        /
-                        <span class="categories">
-                           <?php the_tags( '', '/', ''); ?>
-                        </span>
+                           <time class="date" datetime="2014-01-14T11:24"><?php the_time('F d, Y'); ?></time>
+                           /
+                           <span class="categories">
+                              <?php the_tags( '', '/', ''); ?>
+                           </span>
 
-                     </p>
+                        </p>
 
-                  </div>
+                     </div>
 
-                  <div class="post-thumb">
-                     <a href="" title="">
-                      <?php echo kama_thumb_img(['width' => 1300, 'height' => 500]); ?>
-                     </a>
-                  </div>
+                     <div class="post-thumb">
+                        <a href="<?php the_permalink(); ?>" title="">
+                           <?php echo kama_thumb_img([
+                              'width' => 1300,
+                              'height' => 500
+                           ]); ?>
+                        </a>
+                     </div>
 
-                  <div class="post-content">
-                    <?php the_content(); ?>
-                  </div>
-               </article> <!-- post end -->
-            </div> <!-- Primary End-->
-         <?php endwhile; ?>
-         <!-- post navigation -->
-         <?php else: ?>
-          <!-- no posts found -->
-       <?php endif; ?>
-    </div> <!-- Primary End-->
+                     <div class="post-content">
+                        <?php the_content(); ?>
+                     </div>
 
-    <div id="secondary" class="four columns end">
+                  </article> <!-- post end -->
+                  <!-- Pagination -->
+                  <nav class="col full pagination">
+                  <?php endwhile; ?>
+                  <!-- post navigation -->
+                  <?php else: ?>
+                     <!-- no posts found -->
+                  <?php endif; ?>
+                  <nav class="col full pagination">
+                     <ul>
+                        <li><span class="page-numbers prev inactive">Prev</span></li>
+                        <li><span class="page-numbers current">1</span></li>
+                        <li><a href="#" class="page-numbers">2</a></li>
+                        <li><a href="#" class="page-numbers">3</a></li>
+                        <li><a href="#" class="page-numbers">4</a></li>
+                        <li><a href="#" class="page-numbers">5</a></li>
+                        <li><a href="#" class="page-numbers">6</a></li>
+                        <li><a href="#" class="page-numbers">7</a></li>
+                        <li><a href="#" class="page-numbers">8</a></li>
+                        <li><a href="#" class="page-numbers">9</a></li>
+                        <li><a href="#" class="page-numbers next">Next</a></li>
+                     </ul>
+                  </nav>
 
-      <aside id="sidebar">
+               </div> <!-- Primary End-->
 
-        <?php if(!dynamic_sidebar( 'left-sidebar' )): ?>
-          <h2>Место для сайдбара</h2>
-       <?php endif; ?>
-<!--                <div class="widget widget_search">
-                  <h5>Search</h5>
-                  <form action="#">
+               <div id="secondary" class="four columns end">
 
-                     <input class="text-search" type="text" onfocus="if (this.value == 'Search here...') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Search here...'; }" value="Search here...">
-                     <input type="submit" class="submit-search" value="">
+                  <aside id="sidebar">
+                    <div class="widget widget-search">
+                      <?php get_search_form(); ?>
+                   </div>
 
-                  </form>
-               </div>
+                   <?php if(!dynamic_sidebar( 'left-sidebar' )): ?>
 
-               <div class="widget widget_text">
-                  <h5 class="widget-title">Text Widget</h5>
-                  <div class="textwidget">Proin gravida nibh vel velit auctor aliquet.
-                  Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
-                  nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus
-                  a sit amet mauris. Morbi accumsan ipsum velit. </div>
-		         </div>
+                     <h2>Место для сайдбара</h2>
+                  <?php endif; ?>
+               </aside>
 
-               <div class="widget widget_categories">
-                  <h5 class="widget-title">Categories</h5>
-                  <ul class="link-list cf">
-                     <li><a href="#">Designs</a></li>
-                     <li><a href="#">Internet</a></li>
-                     <li><a href="#">Typography</a></li>
-                     <li><a href="#">Photography</a></li>
-                     <li><a href="#">Web Development</a></li>
-                     <li><a href="#">Projects</a></li>
-                     <li><a href="#">Other Stuff</a></li>
-                  </ul>
-               </div>
+            </div> <!-- Secondary End-->
 
-               <div class="widget widget_tag_cloud">
-                  <h5 class="widget-title">Tags</h5>
-                  <div class="tagcloud cf">
-                     <a href="#">drupal</a>
-                     <a href="#">joomla</a>
-                     <a href="#">ghost</a>
-                     <a href="#">wordpress</a>
-                  </div>
-               </div>
+         </div>
 
-               <div class="widget widget_photostream">
-                  <h5>Photostream</h5>
-                  <ul class="photostream cf">
-                     <li><a href="#"><img src="images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="images/thumb.jpg" alt="thumbnail"></a></li>
-                     <li><a href="#"><img src="images/thumb.jpg" alt="thumbnail"></a></li>
-                  </ul>
-	            </div>
-           -->
-        </aside>
-
-     </div> <!-- Secondary End-->
-
-  </div>
-
-</div> <!-- Content End-->
+      </div> <!-- Content End-->
 
    <!-- Tweets Section
       ================================================== -->
@@ -151,16 +121,6 @@
                   </span>
                   <b><a href="#">2 Days Ago</a></b>
                </li>
-            <!--
-            <li>
-               <span>
-               This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-               Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum
-               <a href="#">http://t.co/CGIrdxIlI3</a>
-               </span>
-               <b><a href="#">3 Days Ago</a></b>
-            </li>
-         -->
       </ul>
 
       <p class="align-center"><a href="#" class="button">Follow us</a></p>

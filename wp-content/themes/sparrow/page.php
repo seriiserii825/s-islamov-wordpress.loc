@@ -46,15 +46,15 @@
 
                      <div class="post-thumb">
                         <a href="<?php the_permalink(); ?>" title="">
-                        <?php echo kama_thumb_img([
-                           'width' => 1300,
-                           'height' => 500
-                        ]); ?>
-                     </a>
+                           <?php echo kama_thumb_img([
+                              'width' => 1300,
+                              'height' => 500
+                           ]); ?>
+                        </a>
                      </div>
 
                      <div class="post-content">
-                     <?php the_excerpt(); ?>
+                        <?php the_excerpt(); ?>
                      </div>
 
                   </article> <!-- post end -->
@@ -88,19 +88,19 @@
                   <aside id="sidebar">
                     <div class="widget widget-search">
                       <?php get_search_form(); ?>
-                    </div>
-                      
-<!--                      <?php if(!dynamic_sidebar( 'left-sidebar' )): ?>
+                   </div>
 
-                        <h2>Место для сайдбара</h2>
-                     <?php endif; ?>
- -->       </aside>
+                   <?php if(!dynamic_sidebar( 'left-sidebar' )): ?>
 
-   </div> <!-- Secondary End-->
+                     <h2>Место для сайдбара</h2>
+                  <?php endif; ?>
+               </aside>
 
-</div>
+            </div> <!-- Secondary End-->
 
-</div> <!-- Content End-->
+         </div>
+
+      </div> <!-- Content End-->
 
    <!-- Tweets Section
       ================================================== -->
@@ -121,21 +121,11 @@
                   </span>
                   <b><a href="#">2 Days Ago</a></b>
                </li>
-            <!--
-            <li>
-               <span>
-               This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-               Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum
-               <a href="#">http://t.co/CGIrdxIlI3</a>
-               </span>
-               <b><a href="#">3 Days Ago</a></b>
-            </li>
-        -->
-    </ul>
+      </ul>
 
-    <p class="align-center"><a href="#" class="button">Follow us</a></p>
+      <p class="align-center"><a href="#" class="button">Follow us</a></p>
 
-</div>
+   </div>
 
 </section> <!-- Tweets Section End-->
 
